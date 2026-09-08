@@ -40,9 +40,9 @@ export default function Home() {
 
         {/* 내용 영역 */}
         <div className="bg-white px-12 py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 justify-items-center lg:justify-items-start">
             {/* 왼쪽: 프로필 */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center w-full max-w-sm mx-auto lg:max-w-none lg:mx-0">
               {/* 프로필 사진 */}
               <div className="w-full bg-gray-300 rounded-lg mb-6 aspect-square flex items-center justify-center">
                 <div className="text-8xl">👤</div>
@@ -70,7 +70,7 @@ export default function Home() {
             </div>
 
             {/* 오른쪽: 소개 및 탭 */}
-            <div className="col-span-2">
+            <div className="lg:col-span-2">
               {/* 제목 */}
               <div className="mb-8">
                 <h1 className="text-5xl font-bold text-black">Web Developer</h1>
