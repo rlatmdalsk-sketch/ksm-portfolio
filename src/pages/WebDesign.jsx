@@ -35,10 +35,19 @@ export default function WebDesign() {
           </Link>
 
           {/* 제목 */}
-          <h1 className="text-4xl font-bold text-black mb-3">웹 디자인</h1>
-          <p className="text-gray-700 text-lg mb-10">
-            사용자 중심의 인터페이스와 비주얼 디자인
-          </p>
+          <h1 className="text-4xl font-bold text-black mb-6">🎨 Web Design</h1>
+          <div className="mb-10 p-4 bg-gray-50 rounded-lg border border-gray-300">
+            <p className="text-gray-800 font-medium mb-2">
+              브랜드 아이덴티티 설계와 다중 매체 디자인
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+              Discover Glo 2026 심포지엄 브랜드 설계부터 KSMCB 학회, 동물 위생 학회 등
+              포스터, 명찰, 웹 UI, 배경화면, 배너 등 다양한 매체의 디자인을 담당했습니다.
+            </p>
+            <p className="text-gray-700 text-sm font-medium">
+              <span className="font-semibold">기술:</span> Photoshop, Adobe Illustrator, Figma를 활용한 웹 및 인쇄 디자인 진행
+            </p>
+          </div>
 
           {/* 프로젝트 목록 */}
           <div className="space-y-6">
@@ -47,8 +56,9 @@ export default function WebDesign() {
                 key={project.id}
                 className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
               >
-                <h3 className="text-2xl font-bold text-black mb-3">{project.title}</h3>
+                <h3 className="text-2xl font-bold text-black mb-2">{project.title}</h3>
                 <p className="text-gray-800 text-base mb-4 leading-relaxed">{project.description}</p>
+
                 <div className="flex flex-wrap gap-3">
                   {project.tags.map((tag, tagIdx) => (
                     <span

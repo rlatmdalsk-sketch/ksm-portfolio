@@ -35,10 +35,17 @@ export default function Marketing() {
           </Link>
 
           {/* 제목 */}
-          <h1 className="text-4xl font-bold text-black mb-3">마케팅</h1>
-          <p className="text-gray-700 text-lg mb-10">
-            데이터 분석 기반의 전략 수립과 캠페인 실행 경험
-          </p>
+          <h1 className="text-4xl font-bold text-black mb-6">📊 Marketing</h1>
+          <div className="mb-10 p-4 bg-gray-50 rounded-lg border border-gray-300">
+            <p className="text-gray-800 font-medium mb-2">
+              GA4 분석 기반 데이터 주도형 마케팅 경험
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              카카오톡 채널 운영부터 블로그 관리, CS페이지 최적화, 폼 설계, 웹 분석까지
+              <br />
+              전체 마케팅 사이클을 담당하며 Promega Korea의 디지털 마케팅을 주도했습니다.
+            </p>
+          </div>
 
           {/* 프로젝트 목록 */}
           <div className="space-y-6">
@@ -47,8 +54,17 @@ export default function Marketing() {
                 key={project.id}
                 className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
               >
-                <h3 className="text-2xl font-bold text-black mb-3">{project.title}</h3>
+                <h3 className="text-2xl font-bold text-black mb-2">{project.title}</h3>
                 <p className="text-gray-800 text-base mb-4 leading-relaxed">{project.description}</p>
+
+                {project.result && (
+                  <div className="mb-4 p-3 bg-gray-50 rounded border-l-4 border-black">
+                    <p className="text-sm text-gray-700">
+                      <span className="font-semibold">성과:</span> {project.result}
+                    </p>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-3">
                   {project.tags.map((tag, tagIdx) => (
                     <span

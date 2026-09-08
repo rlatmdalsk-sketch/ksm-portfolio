@@ -35,15 +35,20 @@ export default function Home() {
           {/* 헤더 */}
           <div className="mb-12">
             <h1 className="text-5xl font-bold text-black mb-4">
-              안녕하세요
+              Kim Seungmin
             </h1>
-            <p className="text-xl text-gray-800 mb-3 font-medium">
-              마케팅, 웹 개발, 웹 디자인을 경험한 멀티 크리에이터입니다.
-            </p>
+            <div className="mb-6">
+              <p className="text-2xl font-bold text-gray-800 mb-2">
+                웹 표준을 준수하는 웹 퍼블리셔
+              </p>
+              <p className="text-2xl font-bold text-gray-800 mb-4">
+                마케팅과 디자인을 이해하는 개발자
+              </p>
+            </div>
             <p className="text-gray-700 leading-relaxed text-lg">
-              데이터 기반의 마케팅 전략부터 디자인 시스템 구축, 웹 개발 구현까지
+              Sitecore CMS에서 페이지 유지보수, GA4 분석 기반 CS페이지 최적화,
               <br />
-              다양한 분야에서 경험을 쌓아왔습니다.
+              Discover Glo 심포지엄 브랜드 설계 등 웹 표준, 마케팅, 디자인을 넘나드는 경험을 가지고 있습니다.
             </p>
           </div>
 
@@ -61,7 +66,7 @@ export default function Home() {
                 title="웹 개발"
                 description="React, JavaScript로 구현하는 프론트엔드"
                 path="/web-development"
-                projectCount={projectsData.webDevelopment.length}
+                projectCount={projectsData.webDevelopment.professional.length + projectsData.webDevelopment.learning.length}
               />
               <SectionFolder
                 title="웹 디자인"

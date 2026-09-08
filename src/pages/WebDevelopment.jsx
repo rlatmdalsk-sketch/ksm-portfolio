@@ -35,32 +35,94 @@ export default function WebDevelopment() {
           </Link>
 
           {/* 제목 */}
-          <h1 className="text-4xl font-bold text-black mb-3">웹 개발</h1>
-          <p className="text-gray-700 text-lg mb-10">
-            React, JavaScript로 구현하는 프론트엔드 개발
-          </p>
+          <h1 className="text-4xl font-bold text-black mb-6">💻 Web Development</h1>
+          <div className="mb-10 p-4 bg-gray-50 rounded-lg border border-gray-300">
+            <p className="text-gray-800 font-medium mb-2">
+              웹 표준 준수와 성능 최적화를 중시하는 개발
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              6개의 학습 프로젝트를 통해 HTML/CSS, JavaScript, React, API를 학습했습니다.
+              <br />
+              Promega Korea에서는 Sitecore CMS 기반 5개 페이지의 유지보수와 최적화를 담당했습니다.
+            </p>
+          </div>
 
-          {/* 프로젝트 목록 */}
-          <div className="space-y-6">
-            {projectsData.webDevelopment.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
-              >
-                <h3 className="text-2xl font-bold text-black mb-3">{project.title}</h3>
-                <p className="text-gray-800 text-base mb-4 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-3">
-                  {project.tags.map((tag, tagIdx) => (
-                    <span
-                      key={tagIdx}
-                      className="inline-block px-3 py-1 bg-black text-white rounded text-sm font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+          {/* 실무 경험 */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold text-black mb-6 pb-3 border-b-2 border-black">
+              💼 실무 경험
+            </h2>
+            <div className="space-y-6">
+              {projectsData.webDevelopment.professional.map((project) => (
+                <div
+                  key={project.id}
+                  className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
+                >
+                  <h3 className="text-2xl font-bold text-black mb-4">{project.title}</h3>
+                  <p className="text-gray-800 text-base mb-6 leading-relaxed">{project.description}</p>
+
+                  {project.pages && (
+                    <div className="space-y-4 mb-6">
+                      <h4 className="font-semibold text-gray-900 text-lg">주요 페이지</h4>
+                      {project.pages.map((page, idx) => (
+                        <div key={idx} className="p-4 bg-gray-50 rounded border-l-4 border-black">
+                          <p className="font-semibold text-gray-900">{page.name}</p>
+                          <p className="text-sm text-gray-700 mt-1">{page.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="flex flex-wrap gap-3">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="inline-block px-3 py-1 bg-black text-white rounded text-sm font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* 학습 프로젝트 */}
+          <div>
+            <h2 className="text-2xl font-bold text-black mb-6 pb-3 border-b-2 border-black">
+              📚 학습 프로젝트
+            </h2>
+            <div className="space-y-6">
+              {projectsData.webDevelopment.learning.map((project) => (
+                <div
+                  key={project.id}
+                  className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
+                >
+                  <h3 className="text-2xl font-bold text-black mb-2">{project.title}</h3>
+                  <p className="text-gray-800 text-base mb-4 leading-relaxed">{project.description}</p>
+
+                  {project.details && (
+                    <div className="mb-4 p-3 bg-gray-50 rounded border-l-4 border-black">
+                      <p className="text-sm text-gray-700">
+                        <span className="font-semibold">주요 학습:</span> {project.details}
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="flex flex-wrap gap-3">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="inline-block px-3 py-1 bg-black text-white rounded text-sm font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
