@@ -48,40 +48,52 @@ export default function WebDevelopment() {
           </div>
 
           {/* 실무 경험 */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-black mb-6 pb-3 border-b-2 border-black">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-black mb-4 pb-3 border-b-2 border-black">
               💼 실무 경험
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {projectsData.webDevelopment.professional.map((project) => (
                 <div
                   key={project.id}
-                  className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
+                  className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all"
                 >
-                  <h3 className="text-2xl font-bold text-black mb-4">{project.title}</h3>
-                  <p className="text-gray-800 text-base mb-6 leading-relaxed">{project.description}</p>
+                  {/* 이미지 영역 */}
+                  <div className="w-full h-32 bg-gray-300 flex items-center justify-center">
+                    {project.image ? (
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="text-6xl text-gray-400">💻</div>
+                    )}
+                  </div>
 
-                  {project.pages && (
-                    <div className="space-y-4 mb-6">
-                      <h4 className="font-semibold text-gray-900 text-lg">주요 페이지</h4>
-                      {project.pages.map((page, idx) => (
-                        <div key={idx} className="p-4 bg-gray-50 rounded border-l-4 border-black">
-                          <p className="font-semibold text-gray-900">{page.name}</p>
-                          <p className="text-sm text-gray-700 mt-1">{page.description}</p>
-                        </div>
+                  {/* 내용 영역 */}
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
+                    <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
+
+                    {project.pages && (
+                      <div className="space-y-2 mb-3">
+                        <h4 className="font-semibold text-gray-900 text-sm">주요 페이지</h4>
+                        {project.pages.map((page, idx) => (
+                          <div key={idx} className="p-2 bg-gray-50 rounded border-l-4 border-black">
+                            <p className="font-semibold text-gray-900 text-sm">{page.name}</p>
+                            <p className="text-xs text-gray-700 mt-1">{page.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIdx) => (
+                        <span
+                          key={tagIdx}
+                          className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
+                        >
+                          {tag}
+                        </span>
                       ))}
                     </div>
-                  )}
-
-                  <div className="flex flex-wrap gap-3">
-                    {project.tags.map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="inline-block px-3 py-1 bg-black text-white rounded text-sm font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
                   </div>
                 </div>
               ))}
@@ -90,31 +102,31 @@ export default function WebDevelopment() {
 
           {/* 학습 프로젝트 */}
           <div>
-            <h2 className="text-2xl font-bold text-black mb-6 pb-3 border-b-2 border-black">
+            <h2 className="text-2xl font-bold text-black mb-4 pb-3 border-b-2 border-black">
               📚 학습 프로젝트
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {projectsData.webDevelopment.learning.map((project) => (
                 <div
                   key={project.id}
-                  className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
+                  className="bg-white border-2 border-black rounded-lg p-4 hover:shadow-lg transition-all"
                 >
-                  <h3 className="text-2xl font-bold text-black mb-2">{project.title}</h3>
-                  <p className="text-gray-800 text-base mb-4 leading-relaxed">{project.description}</p>
+                  <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
+                  <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
 
                   {project.details && (
-                    <div className="mb-4 p-3 bg-gray-50 rounded border-l-4 border-black">
-                      <p className="text-sm text-gray-700">
+                    <div className="mb-3 p-2 bg-gray-50 rounded border-l-4 border-black">
+                      <p className="text-xs text-gray-700">
                         <span className="font-semibold">주요 학습:</span> {project.details}
                       </p>
                     </div>
                   )}
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
-                        className="inline-block px-3 py-1 bg-black text-white rounded text-sm font-medium"
+                        className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
                       >
                         {tag}
                       </span>
@@ -128,8 +140,8 @@ export default function WebDevelopment() {
 
         {/* 상태바 */}
         <div className="bg-gray-100 border-t-2 border-black px-6 py-3 flex justify-between text-xs text-black font-medium">
-          <span>✓ Ready</span>
-          <span>웹 개발</span>
+          <span>KSM</span>
+          <span>2026</span>
         </div>
       </motion.div>
     </div>

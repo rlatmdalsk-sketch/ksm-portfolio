@@ -50,24 +50,36 @@ export default function WebDesign() {
           </div>
 
           {/* 프로젝트 목록 */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {projectsData.webDesign.map((project) => (
               <div
                 key={project.id}
-                className="bg-white border-2 border-black rounded-lg p-6 hover:shadow-lg transition-all"
+                className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all"
               >
-                <h3 className="text-2xl font-bold text-black mb-2">{project.title}</h3>
-                <p className="text-gray-800 text-base mb-4 leading-relaxed">{project.description}</p>
+                {/* 이미지 영역 */}
+                <div className="w-full h-32 bg-gray-300 flex items-center justify-center">
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-6xl text-gray-400">🎨</div>
+                  )}
+                </div>
 
-                <div className="flex flex-wrap gap-3">
-                  {project.tags.map((tag, tagIdx) => (
-                    <span
-                      key={tagIdx}
-                      className="inline-block px-3 py-1 bg-black text-white rounded text-sm font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* 내용 영역 */}
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
+                  <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -76,8 +88,8 @@ export default function WebDesign() {
 
         {/* 상태바 */}
         <div className="bg-gray-100 border-t-2 border-black px-6 py-3 flex justify-between text-xs text-black font-medium">
-          <span>✓ Ready</span>
-          <span>웹 디자인</span>
+          <span>KSM</span>
+          <span>2026</span>
         </div>
       </motion.div>
     </div>

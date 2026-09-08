@@ -38,10 +38,10 @@ export default function SectionFolder({ title, description, path, projectCount }
                 <p className="text-gray-700 text-sm leading-relaxed">{description}</p>
               </div>
 
-              {/* 프로젝트 수 */}
+              {/* 폴더 아이콘과 숫자 */}
               <div className="pt-4 border-t-2 border-black mt-auto">
-                <span className="inline-block px-4 py-2 bg-black text-white rounded text-sm font-semibold hover:scale-105 transition-transform duration-200">
-                  📁 {projectCount} 프로젝트
+                <span className="text-lg font-semibold text-gray-900">
+                  📁 {projectCount}
                 </span>
               </div>
             </div>

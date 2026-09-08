@@ -5,6 +5,7 @@ export const projectsData = {
       title: 'Kakao Channel 운영 전략',
       description: '카카오톡 채널 기획부터 배포까지 전담. 정기적인 메시지 템플릿 설계 및 비즈니스 폼 구축',
       tags: ['Channel Strategy', 'Content Marketing', 'Analytics'],
+      image: null,
     },
     {
       id: 2,
