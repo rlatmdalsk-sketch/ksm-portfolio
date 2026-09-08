@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 import SectionFolder from '../components/SectionFolder'
 import { projectsData } from '../data/projects'
@@ -40,9 +40,9 @@ export default function Home() {
 
         {/* 내용 영역 */}
         <div className="bg-white px-12 py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 justify-items-center lg:justify-items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* 왼쪽: 프로필 */}
-            <div className="flex flex-col items-center w-full max-w-sm mx-auto lg:max-w-none lg:mx-0">
+            <div className="flex flex-col items-center mx-auto lg:mx-0">
               {/* 프로필 사진 */}
               <div className="w-full bg-gray-300 rounded-lg mb-6 aspect-square flex items-center justify-center">
                 <div className="text-8xl">👤</div>
@@ -73,8 +73,8 @@ export default function Home() {
             <div className="lg:col-span-2">
               {/* 제목 */}
               <div className="mb-8">
-                <h1 className="text-5xl font-bold text-black">Web Developer</h1>
-                <p className="text-3xl text-yellow-600 italic font-light">Publisher</p>
+                <h1 className="text-5xl font-bold text-black">Web Agency</h1>
+                <p className="text-3xl text-yellow-600 italic font-light">Digital Marketer</p>
               </div>
 
               {/* 탭 버튼 */}
@@ -97,24 +97,26 @@ export default function Home() {
               </div>
 
               {/* 탭 내용 */}
-              <motion.div
-                className="text-gray-800 leading-relaxed text-sm space-y-4 min-h-[180px]"
-                key={activeTab}
-                initial={skipAnimation ? "visible" : "hidden"}
-                animate="visible"
-                exit="hidden"
-                variants={{
-                  hidden: { opacity: 0, y: 10 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      staggerChildren: 0.15,
-                      delayChildren: 0.05,
-                    },
-                  },
-                }}
-              >
+              <div className="w-full">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    className="text-gray-800 leading-relaxed text-sm space-y-4"
+                    key={activeTab}
+                    initial={skipAnimation ? "visible" : "hidden"}
+                    animate="visible"
+                    exit="hidden"
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          staggerChildren: 0.15,
+                          delayChildren: 0.05,
+                        },
+                      },
+                    }}
+                >
                 {activeTab === 'intro' && (
                   <motion.div
                     variants={{
@@ -144,39 +146,38 @@ export default function Home() {
 
                 {activeTab === 'career' && (
                   <motion.div
-                    className="space-y-4"
                     variants={{
                       hidden: { y: 16, opacity: 0 },
                       visible: { y: 0, opacity: 1 },
                     }}
                     transition={{ duration: 0.35, ease: 'easeOut' }}
                   >
-                    <div>
-                      <p className="font-semibold text-gray-900">Promega Korea</p>
-                      <p className="text-gray-600 text-xs">2024 - 현재</p>
-                      <ul className="mt-2 text-xs space-y-1 text-gray-700">
-                        <li>• Sitecore CMS 기반 5개 페이지 유지보수 및 최적화</li>
-                        <li>• GA4 분석 기반 CS페이지 성능 개선</li>
-                        <li>• 마케팅 전략 수립 및 캠페인 운영</li>
-                        <li>• 브랜드 설계 및 이벤트 디자인</li>
-                      </ul>
-                    </div>
+                    <p className="font-semibold text-gray-900">Promega Korea</p>
+                    <p className="text-gray-600 text-xs">2024 - 현재</p>
+                    <ul className="mt-2 text-xs space-y-1 text-gray-700">
+                      <li>• Sitecore CMS 기반 5개 페이지 유지보수 및 최적화</li>
+                      <li>• GA4 분석 기반 CS페이지 성능 개선</li>
+                      <li>• 마케팅 전략 수립 및 캠페인 운영</li>
+                      <li>• 브랜드 설계 및 이벤트 디자인</li>
+                    </ul>
                   </motion.div>
                 )}
 
                 {activeTab === 'certification' && (
-                  <motion.p
-                    className="text-gray-600"
+                  <motion.div
                     variants={{
                       hidden: { y: 16, opacity: 0 },
                       visible: { y: 0, opacity: 1 },
                     }}
                     transition={{ duration: 0.35, ease: 'easeOut' }}
+                    className="text-gray-600"
                   >
                     준비 중입니다.
-                  </motion.p>
+                  </motion.div>
                 )}
-              </motion.div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
             </div>
           </div>
