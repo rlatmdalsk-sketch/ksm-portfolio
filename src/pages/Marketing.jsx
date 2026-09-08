@@ -1,9 +1,12 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, X } from 'lucide-react'
 import { projectsData } from '../data/projects'
+import { useState } from 'react'
 
 export default function Marketing() {
+  const [selectedProject, setSelectedProject] = useState(null)
+
   return (
     <div className="min-h-screen bg-black p-8 flex items-center justify-center">
       {/* Windows 창 */}
@@ -48,48 +51,79 @@ export default function Marketing() {
           </div>
 
           {/* 프로젝트 목록 */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {projectsData.marketing.map((project) => (
               <div
                 key={project.id}
-                className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all"
+                onClick={() => setSelectedProject(project)}
+                className="bg-white border-2 border-black rounded-lg p-4 hover:shadow-lg transition-all cursor-pointer flex flex-col h-full"
               >
-                {/* 이미지 영역 */}
-                <div className="w-full h-32 bg-gray-300 flex items-center justify-center">
-                  {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="text-6xl text-gray-400">📷</div>
-                  )}
+                <div>
+                  <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
+                  <p className="text-gray-800 text-sm mb-4 leading-relaxed">{project.description}</p>
                 </div>
 
-                {/* 내용 영역 */}
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
-                  <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
-
-                  {project.result && (
-                    <div className="mb-3 p-2 bg-gray-50 rounded border-l-4 border-black">
-                      <p className="text-xs text-gray-700">
-                        <span className="font-semibold">성과:</span> {project.result}
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tags.map((tag, tagIdx) => (
+                    <span
+                      key={tagIdx}
+                      className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
+
+          {/* 모달 */}
+          <AnimatePresence>
+            {selectedProject && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+                onClick={() => setSelectedProject(null)}
+              >
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="bg-white rounded-lg border-2 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+                >
+                  {/* 모달 헤더 */}
+                  <div className="sticky top-0 bg-black px-6 py-4 flex items-center justify-between border-b-2 border-gray-300">
+                    <h2 className="text-xl font-bold text-white">{selectedProject.title}</h2>
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="text-white hover:bg-gray-700 p-2 rounded-sm transition-all"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+
+                  {/* 모달 내용 */}
+                  <div className="p-6">
+                    <p className="text-gray-800 text-base mb-6 leading-relaxed">{selectedProject.description}</p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tags.map((tag, tagIdx) => (
+                        <span
+                          key={tagIdx}
+                          className="inline-block px-3 py-1 bg-black text-white rounded text-sm font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* 상태바 */}

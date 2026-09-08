@@ -1,9 +1,18 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ChevronDown } from 'lucide-react'
 import { projectsData } from '../data/projects'
+import { useState } from 'react'
 
 export default function WebDevelopment() {
+  const [expandedProjects, setExpandedProjects] = useState({ 1: true })
+
+  const toggleProject = (projectId) => {
+    setExpandedProjects(prev => ({
+      ...prev,
+      [projectId]: !prev[projectId]
+    }))
+  }
   return (
     <div className="min-h-screen bg-black p-8 flex items-center justify-center">
       {/* Windows 창 */}
@@ -47,82 +56,62 @@ export default function WebDevelopment() {
             </p>
           </div>
 
-          {/* 실무 경험 */}
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-black mb-4 pb-3 border-b-2 border-black">
-              💼 실무 경험
-            </h2>
-            <div className="space-y-4">
-              {projectsData.webDevelopment.professional.map((project) => (
-                <div
-                  key={project.id}
-                  className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all"
-                >
-                  {/* 이미지 영역 */}
-                  <div className="w-full h-32 bg-gray-300 flex items-center justify-center">
-                    {project.image ? (
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                    ) : (
-                      <div className="text-6xl text-gray-400">💻</div>
-                    )}
-                  </div>
+          {/* 프로젝트 목록 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Sitecore CMS - 전체 너비 */}
+            {projectsData.webDevelopment.professional.map((project) => (
+              <div
+                key={project.id}
+                className="md:col-span-2 bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
+              >
+                {/* 이미지 영역 */}
+                <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-6xl text-gray-400">💻</div>
+                  )}
+                </div>
 
-                  {/* 내용 영역 */}
-                  <div className="p-4">
+                {/* 내용 영역 */}
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex-grow">
                     <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
                     <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
 
                     {project.pages && (
-                      <div className="space-y-2 mb-3">
-                        <h4 className="font-semibold text-gray-900 text-sm">주요 페이지</h4>
-                        {project.pages.map((page, idx) => (
-                          <div key={idx} className="p-2 bg-gray-50 rounded border-l-4 border-black">
-                            <p className="font-semibold text-gray-900 text-sm">{page.name}</p>
-                            <p className="text-xs text-gray-700 mt-1">{page.description}</p>
-                          </div>
-                        ))}
+                      <div className="mb-3">
+                        <h4 className="font-semibold text-gray-900 text-sm mb-2">주요 페이지</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {project.pages.map((page, idx) => (
+                            <div key={idx} className="bg-white border border-gray-300 rounded overflow-hidden">
+                              <div className="w-full h-24 bg-gray-300 flex items-center justify-center">
+                                {page.image ? (
+                                  <img src={page.image} alt={page.name} className="w-full h-full object-cover" />
+                                ) : (
+                                  <div className="text-2xl text-gray-400">📄</div>
+                                )}
+                              </div>
+                              <div className="p-2">
+                                <p className="font-semibold text-gray-900 text-xs">{page.name}</p>
+                                <p className="text-gray-700 text-xs mt-1">{page.description}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
 
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIdx) => (
-                        <span
-                          key={tagIdx}
-                          className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    {project.details && (
+                      <div className="mb-3 p-2 bg-gray-50 rounded border-l-4 border-black">
+                        <p className="text-xs text-gray-700">
+                          <span className="font-semibold">주요 학습:</span> {project.details}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* 학습 프로젝트 */}
-          <div>
-            <h2 className="text-2xl font-bold text-black mb-4 pb-3 border-b-2 border-black">
-              📚 학습 프로젝트
-            </h2>
-            <div className="space-y-4">
-              {projectsData.webDevelopment.learning.map((project) => (
-                <div
-                  key={project.id}
-                  className="bg-white border-2 border-black rounded-lg p-4 hover:shadow-lg transition-all"
-                >
-                  <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
-                  <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
-
-                  {project.details && (
-                    <div className="mb-3 p-2 bg-gray-50 rounded border-l-4 border-black">
-                      <p className="text-xs text-gray-700">
-                        <span className="font-semibold">주요 학습:</span> {project.details}
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
@@ -133,8 +122,52 @@ export default function WebDevelopment() {
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+
+            {/* Learning 프로젝트 - 2 컬럼 그리드 */}
+            {projectsData.webDevelopment.learning.map((project) => (
+              <div
+                key={project.id}
+                className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
+              >
+                {/* 이미지 영역 */}
+                <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-6xl text-gray-400">💻</div>
+                  )}
+                </div>
+
+                {/* 내용 영역 */}
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex-grow">
+                    <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
+                    <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
+
+                    {project.details && (
+                      <div className="mb-3 p-2 bg-gray-50 rounded border-l-4 border-black">
+                        <p className="text-xs text-gray-700">
+                          <span className="font-semibold">주요 학습:</span> {project.details}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

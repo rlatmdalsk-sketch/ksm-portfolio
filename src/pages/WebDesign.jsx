@@ -50,14 +50,14 @@ export default function WebDesign() {
           </div>
 
           {/* 프로젝트 목록 */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {projectsData.webDesign.map((project) => (
               <div
                 key={project.id}
-                className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all"
+                className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
               >
                 {/* 이미지 영역 */}
-                <div className="w-full h-32 bg-gray-300 flex items-center justify-center">
+                <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
                   {project.image ? (
                     <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   ) : (
@@ -66,11 +66,13 @@ export default function WebDesign() {
                 </div>
 
                 {/* 내용 영역 */}
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
-                  <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex-grow">
+                    <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
+                    <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
+                  </div>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag, tagIdx) => (
                       <span
                         key={tagIdx}

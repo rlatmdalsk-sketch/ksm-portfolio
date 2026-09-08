@@ -40,7 +40,7 @@ export default function Home() {
 
         {/* 내용 영역 */}
         <div className="bg-white px-12 py-10">
-          <div className="grid grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* 왼쪽: 프로필 */}
             <div className="flex flex-col items-center">
               {/* 프로필 사진 */}
@@ -81,7 +81,7 @@ export default function Home() {
               <div className="flex mb-8 border-b border-black/20 h-12">
                 {[
                   { id: 'intro', label: '소개' },
-                  { id: 'career', label: '교육' },
+                  { id: 'career', label: '경력' },
                   { id: 'certification', label: '자격증' },
                 ].map((tab) => (
                   <motion.button
@@ -109,7 +109,7 @@ export default function Home() {
                     opacity: 1,
                     y: 0,
                     transition: {
-                      staggerChildren: 0.12,
+                      staggerChildren: 0.15,
                       delayChildren: 0.05,
                     },
                   },
@@ -121,7 +121,7 @@ export default function Home() {
                       hidden: { y: 16, opacity: 0 },
                       visible: { y: 0, opacity: 1 },
                     }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
                   >
                     <p>
                       웹 표준을 준수하며 마케팅과 디자인을 이해하는 개발자입니다. Sitecore CMS 페이지 유지보수, GA4 분석 기반 성능 최적화, Discover Glo 심포지엄 브랜드 설계 등 웹 표준, 마케팅, 디자인을 넘나드는 경험을 가지고 있습니다.
@@ -149,7 +149,7 @@ export default function Home() {
                       hidden: { y: 16, opacity: 0 },
                       visible: { y: 0, opacity: 1 },
                     }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
                   >
                     <div>
                       <p className="font-semibold text-gray-900">Promega Korea</p>
@@ -171,7 +171,7 @@ export default function Home() {
                       hidden: { y: 16, opacity: 0 },
                       visible: { y: 0, opacity: 1 },
                     }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
                   >
                     준비 중입니다.
                   </motion.p>
