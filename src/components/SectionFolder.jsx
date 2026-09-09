@@ -23,9 +23,9 @@ export default function SectionFolder({ title, description, path, projectCount }
       <div className="group cursor-pointer h-full">
         <div className="relative h-full flex flex-col">
           {/* 폴더 탭 - 미니멀 */}
-          <div className="h-12 w-44 bg-gray-200 flex items-center px-4 font-bold text-black ml-2 border-2 border-black border-b-0 rounded-t-lg">
-            <span className="text-lg mr-2">{colors.icon}</span>
-            {title}
+          <div className="h-12 w-fit max-w-[calc(100%-0.5rem)] bg-gray-200 flex items-center px-4 font-bold text-black ml-2 border-2 border-black border-b-0 rounded-t-lg">
+            <span className="text-lg mr-2 shrink-0">{colors.icon}</span>
+            <span className="truncate">{title}</span>
           </div>
 
           {/* 폴더 본체 - 미니멀 */}

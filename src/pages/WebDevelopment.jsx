@@ -3,6 +3,21 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft, ChevronDown } from 'lucide-react'
 import { projectsData } from '../data/projects'
 import { useState } from 'react'
+import Gentle1 from '../assets/Gentle1.JPG'
+import Prospecs1 from '../assets/Prospecs1.JPG'
+import Wetube1 from '../assets/Wetube1.JPG'
+import PokeDex1 from '../assets/PokeDex1.JPG'
+import movie1 from '../assets/movie1.JPG'
+import AnimeExplorer1 from '../assets/AnimeExplorer1.JPG'
+
+const imageMap = {
+  '/assets/Gentle1.JPG': Gentle1,
+  '/assets/Prospecs1.JPG': Prospecs1,
+  '/assets/Wetube1.JPG': Wetube1,
+  '/assets/PokeDex1.JPG': PokeDex1,
+  '/assets/movie1.JPG': movie1,
+  '/assets/AnimeExplorer1.JPG': AnimeExplorer1,
+}
 
 export default function WebDevelopment() {
   const [expandedProjects, setExpandedProjects] = useState({ 1: true })
@@ -19,7 +34,7 @@ export default function WebDevelopment() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
         className="w-full max-w-4xl bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-black"
       >
         {/* 타이틀바 */}
@@ -50,9 +65,9 @@ export default function WebDevelopment() {
               웹 표준 준수와 성능 최적화를 중시하는 개발
             </p>
             <p className="text-gray-700 text-sm leading-relaxed">
-              6개의 학습 프로젝트를 통해 HTML/CSS, JavaScript, React, API를 학습했습니다.
+              HTML/CSS, JavaScript, React, API 등 다양한 기술을 활용한 프로젝트를 진행했습니다.
               <br />
-              Promega Korea에서는 Sitecore CMS 기반 5개 페이지의 유지보수와 최적화를 담당했습니다.
+              Promega Korea에서는 Sitecore CMS 기반 웹페이지의 유지보수와 최적화를 담당했습니다.
             </p>
           </div>
 
@@ -102,13 +117,6 @@ export default function WebDevelopment() {
                       </div>
                     )}
 
-                    {project.details && (
-                      <div className="mb-3 p-2 bg-gray-50 rounded border-l-4 border-black">
-                        <p className="text-xs text-gray-700">
-                          <span className="font-semibold">주요 학습:</span> {project.details}
-                        </p>
-                      </div>
-                    )}
                   </div>
 
                   <div className="flex flex-wrap gap-2 mt-auto">
@@ -134,7 +142,7 @@ export default function WebDevelopment() {
                 {/* 이미지 영역 */}
                 <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
                   {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <img src={imageMap[project.image]} alt={project.title} className="w-full h-full object-cover" />
                   ) : (
                     <div className="text-6xl text-gray-400">💻</div>
                   )}
@@ -146,13 +154,6 @@ export default function WebDevelopment() {
                     <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
                     <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
 
-                    {project.details && (
-                      <div className="mb-3 p-2 bg-gray-50 rounded border-l-4 border-black">
-                        <p className="text-xs text-gray-700">
-                          <span className="font-semibold">주요 학습:</span> {project.details}
-                        </p>
-                      </div>
-                    )}
                   </div>
 
                   <div className="flex flex-wrap gap-2 mt-auto">

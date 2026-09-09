@@ -29,8 +29,8 @@ export const projectsData = {
     webDevelopment: {
         professional: [{
             id: 1,
-            title: 'Sitecore CMS',
-            description: 'Promega Korea 웹페이지 유지보수 및 최적화',
+            title: 'Promega Korea 웹페이지 유지보수',
+            description: 'Sitecore CMS 기반 웹페이지 유지보수 및 최적화',
             tags: ['Sitecore', 'CMS', 'HTML/CSS'],
             pages: [{
                     name: 'Promo Event & Program',
@@ -61,6 +61,7 @@ export const projectsData = {
                 description: '복잡한 레이아웃 구현, 이미지 최적화, 성능 최적화 학습',
                 tags: ['HTML5', 'CSS3', 'JavaScript'],
                 details: '그리드 시스템, 반응형 디자인, 성능 최적화',
+                image: '/assets/Gentle1.JPG',
                 category: 'learning',
             },
             {
@@ -69,6 +70,7 @@ export const projectsData = {
                 description: '시멘틱 마크업, 크로스 브라우징 호환성 학습',
                 tags: ['HTML5', 'CSS3', 'Web Standards'],
                 details: '마크업 구조 설계, 크로스 브라우징',
+                image: '/assets/Prospecs1.JPG',
                 category: 'learning',
             },
             {
@@ -77,6 +79,7 @@ export const projectsData = {
                 description: '컴포넌트 기반 UI 설계, 상태 관리 학습',
                 tags: ['React', 'CSS Modules', 'Components'],
                 details: 'React 기초, 컴포넌트 설계',
+                image: '/assets/Wetube1.JPG',
                 category: 'learning',
             },
             {
@@ -85,6 +88,7 @@ export const projectsData = {
                 description: '대용량 데이터 렌더링, 무한 스크롤 구현',
                 tags: ['REST API', 'Async-Await', 'JavaScript'],
                 details: 'API 연동, 비동기 처리',
+                image: '/assets/PokeDex1.JPG',
                 category: 'learning',
             },
             {
@@ -93,6 +97,7 @@ export const projectsData = {
                 description: '실시간 검색, 동적 UI 렌더링',
                 tags: ['Fetch API', 'Event Listener', 'DOM'],
                 details: '검색 구현, 사용자 입력 처리',
+                image: '/assets/movie1.JPG',
                 category: 'learning',
             },
             {
@@ -101,6 +106,7 @@ export const projectsData = {
                 description: 'JSON 파싱, 복잡한 데이터 구조 처리, 반응형 그리드 구현',
                 tags: ['REST API', 'JSON Parsing', 'Grid Layout'],
                 details: '데이터 분석, 시각화',
+                image: '/assets/AnimeExplorer1.JPG',
                 category: 'learning',
             },
         ],

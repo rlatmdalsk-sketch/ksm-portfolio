@@ -13,7 +13,7 @@ export default function Marketing() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
         className="w-full max-w-4xl bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-black"
       >
         {/* 타이틀바 */}
@@ -84,6 +84,7 @@ export default function Marketing() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
                 className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
                 onClick={() => setSelectedProject(null)}
               >
@@ -91,6 +92,7 @@ export default function Marketing() {
                   initial={{ scale: 0.95, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
                   onClick={(e) => e.stopPropagation()}
                   className="bg-white rounded-lg border-2 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto"
                 >

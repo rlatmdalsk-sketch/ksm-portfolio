@@ -22,7 +22,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
         className="w-full max-w-6xl bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-black"
       >
         {/* 타이틀바 */}
@@ -40,37 +40,37 @@ export default function Home() {
 
         {/* 내용 영역 */}
         <div className="bg-white px-12 py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid items-start md:grid-cols-[300px_1fr] gap-12 lg:gap-20">
             {/* 왼쪽: 프로필 */}
-            <div className="flex flex-col items-center mx-auto lg:mx-0">
+            <div className="flex flex-col gap-8">
               {/* 프로필 사진 */}
-              <div className="w-full bg-gray-300 rounded-lg mb-6 aspect-square flex items-center justify-center">
+              <div className="w-full bg-gray-300 rounded-2xl aspect-square flex items-center justify-center">
                 <div className="text-8xl">👤</div>
               </div>
 
               {/* 개인 정보 */}
-              <div className="w-full space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-500 font-semibold text-xs tracking-widest">NAME</span>
-                  <span className="text-gray-900 font-semibold">Kim Seungmin</span>
+              <div className="flex flex-col divide-y divide-gray-200">
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <span className="text-xs tracking-widest text-gray-500 uppercase shrink-0">Name</span>
+                  <span className="text-right text-sm text-gray-900">Kim Seungmin</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500 font-semibold text-xs tracking-widest">BIRTHDATE</span>
-                  <span className="text-gray-900">2002.01.27</span>
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <span className="text-xs tracking-widest text-gray-500 uppercase shrink-0">Birthdate</span>
+                  <span className="text-right text-sm text-gray-900">2002.01.27</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500 font-semibold text-xs tracking-widest">LOCATION</span>
-                  <span className="text-gray-900">Siheung, Korea</span>
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <span className="text-xs tracking-widest text-gray-500 uppercase shrink-0">Location</span>
+                  <span className="text-right text-sm text-gray-900">Siheung, Korea</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500 font-semibold text-xs tracking-widest">EMAIL</span>
-                  <span className="text-gray-900 text-xs">rlatmdalsk@naver.com</span>
+                <div className="flex items-baseline justify-between gap-4 py-3">
+                  <span className="text-xs tracking-widest text-gray-500 uppercase shrink-0">Email</span>
+                  <span className="text-right text-sm text-gray-900">rlatmdalsk@naver.com</span>
                 </div>
               </div>
             </div>
 
             {/* 오른쪽: 소개 및 탭 */}
-            <div className="lg:col-span-2">
+            <div className="flex flex-col gap-0">
               {/* 제목 */}
               <div className="mb-8">
                 <h1 className="text-5xl font-bold text-black">Web Developer</h1>
@@ -199,8 +199,8 @@ export default function Home() {
                 projectCount={projectsData.webDevelopment.professional.length + projectsData.webDevelopment.learning.length}
               />
               <SectionFolder
-                title="웹 디자인"
-                description="사용자 중심의 인터페이스와 비주얼 디자인"
+                title="디자인"
+                description="브랜드 아이덴티티와 비주얼 디자인"
                 path="/web-design"
                 projectCount={projectsData.webDesign.length}
               />

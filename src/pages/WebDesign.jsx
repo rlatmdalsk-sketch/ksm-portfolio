@@ -10,14 +10,14 @@ export default function WebDesign() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2 }}
         className="w-full max-w-4xl bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-black"
       >
         {/* 타이틀바 */}
         <div className="bg-black px-6 py-4 flex items-center justify-between border-b-2 border-gray-300">
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 bg-white border-2 border-black rounded-sm"></div>
-            <span className="text-white font-bold text-base tracking-tight">웹 디자인</span>
+            <span className="text-white font-bold text-base tracking-tight">디자인</span>
           </div>
           <div className="flex gap-3">
             <button className="w-8 h-8 hover:bg-gray-700 rounded-sm flex items-center justify-center text-white transition-all duration-200 text-lg">_</button>
@@ -35,7 +35,7 @@ export default function WebDesign() {
           </Link>
 
           {/* 제목 */}
-          <h1 className="text-4xl font-bold text-black mb-6">🎨 Web Design</h1>
+          <h1 className="text-4xl font-bold text-black mb-6">🎨 Design</h1>
           <div className="mb-10 p-4 bg-gray-50 rounded-lg border border-gray-300">
             <p className="text-gray-800 font-medium mb-2">
               브랜드 아이덴티티 설계와 다중 매체 디자인
