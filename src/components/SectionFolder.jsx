@@ -8,7 +8,7 @@ const getFolderColors = (title) => {
     '웹 개발': {
       icon: '💻',
     },
-    '웹 디자인': {
+    '디자인': {
       icon: '🎨',
     },
   }
@@ -23,13 +23,13 @@ export default function SectionFolder({ title, description, path, projectCount }
       <div className="group cursor-pointer h-full">
         <div className="relative h-full flex flex-col">
           {/* 폴더 탭 - 미니멀 */}
-          <div className="h-12 w-fit max-w-[calc(100%-0.5rem)] bg-gray-200 flex items-center px-4 font-bold text-black ml-2 border-2 border-black border-b-0 rounded-t-lg">
+          <div className="h-12 w-fit max-w-[calc(100%-0.5rem)] bg-gray-100 flex items-center px-4 font-bold text-black ml-2 border border-gray-300 border-b-0 rounded-t-lg">
             <span className="text-lg mr-2 shrink-0">{colors.icon}</span>
             <span className="truncate">{title}</span>
           </div>
 
           {/* 폴더 본체 - 미니멀 */}
-          <div className="flex-1 bg-white p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-black rounded-b-lg flex flex-col">
+          <div className="flex-1 bg-white p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-300 rounded-b-lg flex flex-col">
             <div className="flex-1 flex flex-col justify-between space-y-4">
               <div>
                 <h3 className="text-2xl font-bold text-black mb-2">
@@ -39,7 +39,7 @@ export default function SectionFolder({ title, description, path, projectCount }
               </div>
 
               {/* 폴더 아이콘과 숫자 */}
-              <div className="pt-4 border-t-2 border-black mt-auto">
+              <div className="pt-4 border-t border-gray-200 mt-auto">
                 <span className="text-lg font-semibold text-gray-900">
                   📁 {projectCount}
                 </span>

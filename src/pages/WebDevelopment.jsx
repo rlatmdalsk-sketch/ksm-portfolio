@@ -29,24 +29,24 @@ export default function WebDevelopment() {
     }))
   }
   return (
-    <div className="min-h-screen bg-black p-8 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-200 p-8 flex items-center justify-center">
       {/* Windows 창 */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="w-full max-w-4xl bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-black"
+        className="w-full max-w-4xl bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-300"
       >
         {/* 타이틀바 */}
-        <div className="bg-black px-6 py-4 flex items-center justify-between border-b-2 border-gray-300">
+        <div className="bg-white px-6 py-4 flex items-center justify-between border-b border-gray-200">
           <div className="flex items-center gap-3">
-            <div className="w-5 h-5 bg-white border-2 border-black rounded-sm"></div>
-            <span className="text-white font-bold text-base tracking-tight">웹 개발</span>
+            <div className="w-5 h-5 bg-gray-900 rounded-sm"></div>
+            <span className="text-black font-bold text-base tracking-tight">웹 개발</span>
           </div>
           <div className="flex gap-3">
-            <button className="w-8 h-8 hover:bg-gray-700 rounded-sm flex items-center justify-center text-white transition-all duration-200 text-lg">_</button>
-            <button className="w-8 h-8 hover:bg-gray-700 rounded-sm flex items-center justify-center text-white transition-all duration-200 text-lg">□</button>
-            <Link to="/" className="w-8 h-8 hover:bg-black rounded-sm flex items-center justify-center text-white transition-all duration-200 text-lg border-2 border-white">✕</Link>
+            <button className="w-8 h-8 hover:bg-gray-100 rounded-sm flex items-center justify-center text-black transition-all duration-200 text-lg">_</button>
+            <button className="w-8 h-8 hover:bg-gray-100 rounded-sm flex items-center justify-center text-black transition-all duration-200 text-lg">□</button>
+            <Link to="/" className="w-8 h-8 hover:bg-red-500 hover:text-white rounded-sm flex items-center justify-center text-black transition-all duration-200 text-lg">✕</Link>
           </div>
         </div>
 
@@ -77,7 +77,7 @@ export default function WebDevelopment() {
             {projectsData.webDevelopment.professional.map((project) => (
               <div
                 key={project.id}
-                className="md:col-span-2 bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
+                className="md:col-span-2 bg-white border border-gray-300 rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
               >
                 {/* 이미지 영역 */}
                 <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
@@ -123,7 +123,7 @@ export default function WebDevelopment() {
                     {project.tags.map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
-                        className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
+                        className="inline-block px-2 py-1 bg-gray-100 text-gray-800 border border-gray-300 rounded text-xs font-medium"
                       >
                         {tag}
                       </span>
@@ -137,7 +137,7 @@ export default function WebDevelopment() {
             {projectsData.webDevelopment.learning.map((project) => (
               <div
                 key={project.id}
-                className="bg-white border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
+                className="bg-white border border-gray-300 rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
               >
                 {/* 이미지 영역 */}
                 <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
@@ -160,7 +160,7 @@ export default function WebDevelopment() {
                     {project.tags.map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
-                        className="inline-block px-2 py-1 bg-black text-white rounded text-xs font-medium"
+                        className="inline-block px-2 py-1 bg-gray-100 text-gray-800 border border-gray-300 rounded text-xs font-medium"
                       >
                         {tag}
                       </span>
@@ -173,7 +173,7 @@ export default function WebDevelopment() {
         </div>
 
         {/* 상태바 */}
-        <div className="bg-gray-100 border-t-2 border-black px-6 py-3 flex justify-between text-xs text-black font-medium">
+        <div className="bg-gray-50 border-t border-gray-200 px-6 py-3 flex justify-between text-xs text-gray-600 font-medium">
           <span>KSM</span>
           <span>2026</span>
         </div>
