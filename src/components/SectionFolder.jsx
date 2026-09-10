@@ -1,34 +1,14 @@
 import { Link } from 'react-router-dom'
 
-const getFolderColors = (title) => {
-  const colors = {
-    '마케팅': {
-      icon: '📊',
-    },
-    '웹 개발': {
-      icon: '💻',
-    },
-    '디자인': {
-      icon: '🎨',
-    },
-  }
-  return colors[title] || colors['마케팅']
-}
-
 export default function SectionFolder({ title, description, path, projectCount }) {
-  const colors = getFolderColors(title)
-
   return (
     <Link to={path} className="h-full">
       <div className="group cursor-pointer h-full">
         <div className="relative h-full flex flex-col">
-          {/* 폴더 탭 - 미니멀 */}
-          <div className="h-12 w-fit max-w-[calc(100%-0.5rem)] bg-gray-100 flex items-center px-4 font-bold text-black ml-2 border border-gray-300 border-b-0 rounded-t-lg">
-            <span className="text-lg mr-2 shrink-0">{colors.icon}</span>
-            <span className="truncate">{title}</span>
-          </div>
+          {/* 폴더 탭 */}
+          <div className="h-12 w-28 bg-gray-100 ml-2 border border-gray-300 border-b-0 rounded-t-lg" />
 
-          {/* 폴더 본체 - 미니멀 */}
+          {/* 폴더 본체 */}
           <div className="flex-1 bg-white p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-300 rounded-b-lg flex flex-col">
             <div className="flex-1 flex flex-col justify-between space-y-4">
               <div>
@@ -38,7 +18,6 @@ export default function SectionFolder({ title, description, path, projectCount }
                 <p className="text-gray-700 text-sm leading-relaxed">{description}</p>
               </div>
 
-              {/* 폴더 아이콘과 숫자 */}
               <div className="pt-4 border-t border-gray-200 mt-auto">
                 <span className="text-lg font-semibold text-gray-900">
                   📁 {projectCount}

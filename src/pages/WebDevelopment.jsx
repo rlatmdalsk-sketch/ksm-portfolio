@@ -96,11 +96,19 @@ export default function WebDevelopment() {
           {/* 헤더 */}
           <motion.div initial="hidden" animate="visible" variants={sectionVariants} className="mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Web Development</h1>
-            <p className="mt-2 text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publishing &amp; Frontend</p>
-            <p className="mt-6 max-w-2xl text-sm text-gray-600 leading-relaxed">
-              웹 표준 준수와 성능 최적화를 중시합니다. Promega Korea에서 Sitecore CMS 기반 웹페이지의 유지보수와 최적화를 담당했고,
-              HTML/CSS, JavaScript, React, Open API를 활용한 학습 프로젝트를 진행했습니다.
-            </p>
+            <p className="mt-1 text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publishing &amp; Frontend</p>
+            <div className="mt-6 max-w-2xl text-sm text-gray-600 leading-relaxed space-y-3">
+              <p>
+                어떤 기기에서든 최상의 경험을 주는 유연한 반응형 웹을 지향하며, 웹 표준을 준수하는 마크업과 SEO 최적화로
+                사용자의 실질적인 전환을 이끌어내는 데 집중합니다.
+              </p>
+              <p>
+                또한, 최신 AI 기술을 작업에 적극적으로 활용하여 효율을 높이고, 더 정교한 인터랙션과 코드 구조를 설계합니다.
+              </p>
+              <p>
+                Sitecore CMS 기반 웹페이지의 운영과 최적화 경험이 있고, HTML/CSS, JavaScript, React, Open API를 활용한 프로젝트를 진행했습니다.
+              </p>
+            </div>
           </motion.div>
 
           {/* Professional */}
@@ -179,6 +187,7 @@ export default function WebDevelopment() {
                     <span className="text-[11px] text-gray-400 shrink-0">0{project.id - 1}</span>
                   </div>
                   <p className="mt-1 text-sm text-gray-600 leading-relaxed">{project.description}</p>
+                  <p className="mt-2 text-xs text-gray-400">{project.tags.join(' · ')}</p>
                 </div>
               ))}
             </div>

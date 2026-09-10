@@ -65,7 +65,7 @@ export default function WebDesign() {
             </p>
           </motion.div>
 
-          {/* 프로젠트 카드 */}
+          {/* 프로젝트 카드 */}
           <motion.div initial="hidden" animate="visible" variants={sectionVariants}>
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-3 mb-8">
               <span className="text-xs tracking-widest text-gray-500 uppercase">Projects</span>
@@ -130,9 +130,9 @@ export default function WebDesign() {
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-lg border border-gray-300 shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden"
             >
-              <div className="px-6 py-4 flex items-center justify-between border-b border-gray-200 shrink-0">
-                <div>
-                  <h2 className="text-lg font-bold text-black">{selected.title}</h2>
+              <div className="px-4 md:px-6 py-4 flex items-center justify-between gap-4 border-b border-gray-200 shrink-0">
+                <div className="min-w-0">
+                  <h2 className="text-base md:text-lg font-bold text-black truncate">{selected.title}</h2>
                   <p className="text-xs text-gray-500 mt-0.5">{selected.tags.join(' · ')}</p>
                 </div>
                 <button
@@ -144,7 +144,7 @@ export default function WebDesign() {
                 </button>
               </div>
 
-              <div className="overflow-y-auto p-6 space-y-6 bg-gray-50">
+              <div className="overflow-y-auto p-4 md:p-6 space-y-4 md:space-y-6 bg-gray-50">
                 <p className="text-sm text-gray-700 leading-relaxed">{selected.description}</p>
                 {selected.images.map((name, idx) => (
                   <div key={name} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
