@@ -226,7 +226,7 @@ export default function Home() {
                   >
                     {[
                       { name: '검색광고마케터 1급', issuer: '한국정보통신진흥협회', year: '2025' },
-                      { name: 'GoogleAds', issuer: 'Google', year: '2025' },
+                      { name: 'Google Ads', issuer: 'Google', year: '2025' },
                       { name: '운전면허 2종보통', issuer: '도로교통공단', year: '2020' },
                     ].map((cert) => (
                       <div
@@ -289,7 +289,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-max">
               <SectionFolder
                 title="마케팅"
-                description="데이터 분석 기반의 전략 수립과 캠페인 실행"
+                description="마케팅 채널 운영과 데이터 기반 페이지 개선"
                 path="/marketing"
                 projectCount={projectsData.marketing.length}
               />
