@@ -96,7 +96,7 @@ export default function WebDevelopment() {
           {/* 헤더 */}
           <motion.div initial="hidden" animate="visible" variants={sectionVariants} className="mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Web Development</h1>
-            <p className="text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publishing &amp; Frontend</p>
+            <p className="mt-2 text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publishing &amp; Frontend</p>
             <p className="mt-6 max-w-2xl text-sm text-gray-600 leading-relaxed">
               웹 표준 준수와 성능 최적화를 중시합니다. Promega Korea에서 Sitecore CMS 기반 웹페이지의 유지보수와 최적화를 담당했고,
               HTML/CSS, JavaScript, React, Open API를 활용한 학습 프로젝트를 진행했습니다.

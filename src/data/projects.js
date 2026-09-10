@@ -121,7 +121,7 @@ export const projectsData = {
             id: 1,
             title: 'Discover Glo 2026 심포지엄',
             description: '심포지엄 전반의 비주얼 톤 설정. 웹페이지 배너, 명찰, 오프라인 DID 배너, 초청장 포스터 제작',
-            tags: ['Visual Direction', 'Web Banner', 'Print'],
+            tags: ['Visual Direction', 'Web Page', 'Print', `DID`],
             thumbnail: 'discover_glo_thumb.png',
             images: [
                 'discvoer_glo_1.jpg',

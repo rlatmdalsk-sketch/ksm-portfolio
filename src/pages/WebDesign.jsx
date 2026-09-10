@@ -58,7 +58,7 @@ export default function WebDesign() {
           {/* 헤더 */}
           <motion.div initial="hidden" animate="visible" variants={sectionVariants} className="mb-14">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Design</h1>
-            <p className="text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Web &amp; Print</p>
+            <p className="mt-1 text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Web &amp; Print</p>
             <p className="mt-6 max-w-2xl text-sm text-gray-600 leading-relaxed">
               웹 배너, 랜딩 페이지 비주얼, 채널 캐러셀 등의 웹 디자인과 명찰, 포스터, 부스 벽면, 기프트 등의 인쇄물 디자인을
               함께 작업합니다. Photoshop, Illustrator, Adobe Express를 사용합니다.

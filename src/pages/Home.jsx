@@ -75,7 +75,7 @@ export default function Home() {
               {/* 제목 */}
               <div className="mb-8">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Web Developer</h1>
-                <p className="text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publisher</p>
+                <p className="mt-1 text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publisher</p>
               </div>
 
               {/* 탭 버튼 */}
