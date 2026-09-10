@@ -18,10 +18,9 @@ export default function SectionFolder({ title, description, path, projectCount }
                 <p className="text-gray-700 text-sm leading-relaxed">{description}</p>
               </div>
 
-              <div className="pt-4 border-t border-gray-200 mt-auto">
-                <span className="text-lg font-semibold text-gray-900">
-                  📁 {projectCount}
-                </span>
+              <div className="pt-4 border-t border-gray-200 mt-auto flex items-baseline justify-between">
+                <span className="text-sm font-semibold text-gray-900">{projectCount} Projects</span>
+                <span className="text-gray-300 group-hover:text-black group-hover:translate-x-1 transition-all">→</span>
               </div>
             </div>
           </div>
