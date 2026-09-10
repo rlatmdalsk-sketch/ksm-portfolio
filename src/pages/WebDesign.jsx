@@ -58,10 +58,10 @@ export default function WebDesign() {
           {/* 헤더 */}
           <motion.div initial="hidden" animate="visible" variants={sectionVariants} className="mb-14">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Design</h1>
-            <p className="text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Brand &amp; Print</p>
+            <p className="text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Web &amp; Print</p>
             <p className="mt-6 max-w-2xl text-sm text-gray-600 leading-relaxed">
-              Discover Glo 2026 심포지엄 브랜드 설계부터 KSMCB 학회, 동물 위생 학회까지 포스터, 명찰, 웹 UI, 배경화면, 배너 등
-              다양한 매체의 디자인을 담당했습니다. Photoshop, Illustrator, Figma를 활용합니다.
+              웹 배너, 랜딩 페이지 비주얼, 채널 캐러셀 등의 웹 디자인과 명찰, 포스터, 부스 벽면, 기프트 등의 인쇄물 디자인을
+              함께 작업합니다. Photoshop, Illustrator, Adobe Express를 사용합니다.
             </p>
           </motion.div>
 
@@ -75,14 +75,16 @@ export default function WebDesign() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
               {projects.map((project, i) => (
                 <div key={project.id} onClick={() => setSelected(project)} className="group cursor-pointer">
-                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden border border-gray-200 bg-gray-100">
-                    <img
-                      src={getImage(project.images[0])}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 bg-gray-100">
+                    <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+                      <img
+                        src={getImage(project.thumbnail)}
+                        alt={project.title}
+                        className={`w-full h-full object-cover ${project.thumbnailClass ?? ''}`}
+                      />
+                    </div>
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="px-5 py-2 border border-white text-white text-xs font-semibold tracking-wide">
+                      <span className="px-5 py-2 border border-white text-white text-xs font-semibold tracking-wide hover:bg-white hover:text-black transition-colors">
                         VIEW
                       </span>
                     </div>
