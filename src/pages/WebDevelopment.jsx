@@ -1,41 +1,77 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ChevronDown } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { projectsData } from '../data/projects'
-import { useState } from 'react'
 import Gentle1 from '../assets/Gentle1.JPG'
 import Prospecs1 from '../assets/Prospecs1.JPG'
-import Wetube1 from '../assets/Wetube1.JPG'
+import Wetube2 from '../assets/Wetube2.png'
 import PokeDex1 from '../assets/PokeDex1.JPG'
 import movie1 from '../assets/movie1.JPG'
 import AnimeExplorer1 from '../assets/AnimeExplorer1.JPG'
+import PromegaLogo from '../assets/Promega_logo2.png'
+import PromegaProject1 from '../assets/Promega_Project1.png'
+import PromegaProject2 from '../assets/Promega_Project2.png'
+import PromegaProject3 from '../assets/Promega_Project3.png'
+import PromegaProject4 from '../assets/Promega_Project4.png'
+import PromegaProject5 from '../assets/Promega_Project5.png'
 
 const imageMap = {
   '/assets/Gentle1.JPG': Gentle1,
   '/assets/Prospecs1.JPG': Prospecs1,
-  '/assets/Wetube1.JPG': Wetube1,
+  '/assets/Wetube2.png': Wetube2,
   '/assets/PokeDex1.JPG': PokeDex1,
   '/assets/movie1.JPG': movie1,
   '/assets/AnimeExplorer1.JPG': AnimeExplorer1,
+  '/assets/Promega_logo2.png': PromegaLogo,
+  '/assets/Promega_Project1.png': PromegaProject1,
+  '/assets/Promega_Project2.png': PromegaProject2,
+  '/assets/Promega_Project3.png': PromegaProject3,
+  '/assets/Promega_Project4.png': PromegaProject4,
+  '/assets/Promega_Project5.png': PromegaProject5,
+}
+
+const openInNewTab = (url) => window.open(url, '_blank', 'noopener,noreferrer')
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+}
+
+function OverlayButton({ href, children, small }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(e) => e.stopPropagation()}
+      className={`border border-white text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-colors ${
+        small ? 'px-3 py-1 text-[10px]' : 'px-5 py-2 text-xs'
+      }`}
+    >
+      {children}
+    </a>
+  )
+}
+
+function SectionHeader({ label, meta }) {
+  return (
+    <div className="flex items-baseline justify-between border-b border-gray-200 pb-3 mb-8">
+      <span className="text-xs tracking-widest text-gray-500 uppercase">{label}</span>
+      <span className="text-xs text-gray-400">{meta}</span>
+    </div>
+  )
 }
 
 export default function WebDevelopment() {
-  const [expandedProjects, setExpandedProjects] = useState({ 1: true })
+  const { professional, learning } = projectsData.webDevelopment
 
-  const toggleProject = (projectId) => {
-    setExpandedProjects(prev => ({
-      ...prev,
-      [projectId]: !prev[projectId]
-    }))
-  }
   return (
-    <div className="min-h-screen bg-gray-200 p-8 flex items-center justify-center">
-      {/* Windows 창 */}
+    <div className="min-h-screen bg-gray-200 p-4 md:p-8 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="w-full max-w-4xl bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-300"
+        className="w-full max-w-[1088px] bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-300"
       >
         {/* 타이틀바 */}
         <div className="bg-white px-6 py-4 flex items-center justify-between border-b border-gray-200">
@@ -51,125 +87,102 @@ export default function WebDevelopment() {
         </div>
 
         {/* 내용 영역 */}
-        <div className="bg-white px-8 py-10">
-          {/* 뒤로가기 */}
-          <Link to="/" className="inline-flex items-center gap-2 text-black hover:text-gray-700 mb-8 font-semibold text-lg">
-            <ArrowLeft className="w-5 h-5" />
+        <div className="bg-white px-6 py-8 md:px-12 md:py-10">
+          <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-black transition-colors mb-10">
+            <ArrowLeft className="w-4 h-4" />
             <span>돌아가기</span>
           </Link>
 
-          {/* 제목 */}
-          <h1 className="text-4xl font-bold text-black mb-6">💻 Web Development</h1>
-          <div className="mb-10 p-4 bg-gray-50 rounded-lg border border-gray-300">
-            <p className="text-gray-800 font-medium mb-2">
-              웹 표준 준수와 성능 최적화를 중시하는 개발
+          {/* 헤더 */}
+          <motion.div initial="hidden" animate="visible" variants={sectionVariants} className="mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Web Development</h1>
+            <p className="text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publishing &amp; Frontend</p>
+            <p className="mt-6 max-w-2xl text-sm text-gray-600 leading-relaxed">
+              웹 표준 준수와 성능 최적화를 중시합니다. Promega Korea에서 Sitecore CMS 기반 웹페이지의 유지보수와 최적화를 담당했고,
+              HTML/CSS, JavaScript, React, Open API를 활용한 학습 프로젝트를 진행했습니다.
             </p>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              HTML/CSS, JavaScript, React, API 등 다양한 기술을 활용한 프로젝트를 진행했습니다.
-              <br />
-              Promega Korea에서는 Sitecore CMS 기반 웹페이지의 유지보수와 최적화를 담당했습니다.
-            </p>
-          </div>
+          </motion.div>
 
-          {/* 프로젝트 목록 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Sitecore CMS - 전체 너비 */}
-            {projectsData.webDevelopment.professional.map((project) => (
-              <div
-                key={project.id}
-                className="md:col-span-2 bg-white border border-gray-300 rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
-              >
-                {/* 이미지 영역 */}
-                <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
-                  {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="text-6xl text-gray-400">💻</div>
-                  )}
+          {/* Professional */}
+          {professional.map((project) => (
+            <motion.section
+              key={project.id}
+              initial="hidden"
+              animate="visible"
+              variants={sectionVariants}
+              className="mb-20"
+            >
+              <SectionHeader label="Professional" meta="Promega Korea · 2026.04 — 2026.09" />
+
+              <div className="grid md:grid-cols-[240px_1fr] gap-6 lg:gap-8 items-start">
+                <div className="md:self-center">
+                  <div className="border border-gray-200 rounded-xl aspect-[4/3] overflow-hidden">
+                    <img src={imageMap[project.image]} alt="Promega" className="w-full h-full object-cover" />
+                  </div>
+                  <h2 className="mt-5 text-lg font-bold text-gray-900">{project.title}</h2>
+                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{project.description}</p>
+                  <p className="mt-3 text-xs text-gray-400">{project.tags.join(' · ')}</p>
                 </div>
 
-                {/* 내용 영역 */}
-                <div className="p-4 flex flex-col flex-grow">
-                  <div className="flex-grow">
-                    <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
-                    <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
-
-                    {project.pages && (
-                      <div className="mb-3">
-                        <h4 className="font-semibold text-gray-900 text-sm mb-2">주요 페이지</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                          {project.pages.map((page, idx) => (
-                            <div key={idx} className="bg-white border border-gray-300 rounded overflow-hidden">
-                              <div className="w-full h-24 bg-gray-300 flex items-center justify-center">
-                                {page.image ? (
-                                  <img src={page.image} alt={page.name} className="w-full h-full object-cover" />
-                                ) : (
-                                  <div className="text-2xl text-gray-400">📄</div>
-                                )}
-                              </div>
-                              <div className="p-2">
-                                <p className="font-semibold text-gray-900 text-xs">{page.name}</p>
-                                <p className="text-gray-700 text-xs mt-1">{page.description}</p>
-                              </div>
-                            </div>
-                          ))}
+                <div className="mt-4 md:mt-0 md:border-l md:border-gray-200 md:pl-6 lg:pl-8">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-5">주요 페이지</h3>
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
+                  {project.pages.map((page) => (
+                    <div
+                      key={page.name}
+                      onClick={() => openInNewTab(page.link)}
+                      className="group cursor-pointer"
+                    >
+                      <div className="relative aspect-[16/10] rounded-lg overflow-hidden border border-gray-200 bg-gray-100">
+                        <img
+                          src={imageMap[page.image]}
+                          alt={page.name}
+                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <OverlayButton href={page.link} small>LIVE</OverlayButton>
                         </div>
                       </div>
-                    )}
-
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tags.map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="inline-block px-2 py-1 bg-gray-100 text-gray-800 border border-gray-300 rounded text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                      <p className="mt-2.5 text-xs font-semibold text-gray-900">{page.name}</p>
+                    </div>
+                  ))}
                   </div>
                 </div>
               </div>
-            ))}
+            </motion.section>
+          ))}
 
-            {/* Learning 프로젝트 - 2 컬럼 그리드 */}
-            {projectsData.webDevelopment.learning.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white border border-gray-300 rounded-lg overflow-hidden hover:shadow-lg transition-all flex flex-col h-full"
-              >
-                {/* 이미지 영역 */}
-                <div className="w-full h-32 bg-gray-300 flex items-center justify-center flex-shrink-0">
-                  {project.image ? (
-                    <img src={imageMap[project.image]} alt={project.title} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="text-6xl text-gray-400">💻</div>
-                  )}
-                </div>
+          {/* Learning */}
+          <motion.section initial="hidden" animate="visible" variants={sectionVariants}>
+            <SectionHeader label="Learning" meta={`${learning.length} Projects`} />
 
-                {/* 내용 영역 */}
-                <div className="p-4 flex flex-col flex-grow">
-                  <div className="flex-grow">
-                    <h3 className="text-lg font-bold text-black mb-2">{project.title}</h3>
-                    <p className="text-gray-800 text-sm mb-3 leading-relaxed">{project.description}</p>
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+              {learning.map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => openInNewTab(project.link)}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative aspect-[2/1] rounded-xl overflow-hidden border border-gray-200 bg-gray-100">
+                    <img
+                      src={imageMap[project.image]}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                      <OverlayButton href={project.link}>LIVE</OverlayButton>
+                      <OverlayButton href={project.github}>GITHUB</OverlayButton>
+                    </div>
                   </div>
-
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tags.map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="inline-block px-2 py-1 bg-gray-100 text-gray-800 border border-gray-300 rounded text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="mt-4 flex items-baseline justify-between gap-4">
+                    <h3 className="text-base font-bold text-gray-900">{project.title}</h3>
+                    <span className="text-[11px] text-gray-400 shrink-0">0{project.id - 1}</span>
                   </div>
+                  <p className="mt-1 text-sm text-gray-600 leading-relaxed">{project.description}</p>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.section>
         </div>
 
         {/* 상태바 */}

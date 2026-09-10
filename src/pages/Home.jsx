@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 import SectionFolder from '../components/SectionFolder'
 import { projectsData } from '../data/projects'
+import profileImage from '../assets/profile_image.jpg'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('intro')
@@ -17,13 +18,13 @@ export default function Home() {
   }, [activeTab])
 
   return (
-    <div className="min-h-screen bg-gray-200 p-8 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-200 p-4 md:p-8 flex items-center justify-center">
       {/* Windows 창 */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="w-full max-w-6xl bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-300"
+        className="w-full max-w-[1088px] bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-300"
       >
         {/* 타이틀바 */}
         <div className="bg-white px-6 py-4 flex items-center justify-between border-b border-gray-200">
@@ -39,13 +40,13 @@ export default function Home() {
         </div>
 
         {/* 내용 영역 */}
-        <div className="bg-white px-12 py-10">
-          <div className="grid items-start md:grid-cols-[300px_1fr] gap-12 lg:gap-20">
+        <div className="bg-white px-6 py-8 md:px-12 md:py-10">
+          <div className="grid items-start md:grid-cols-[255px_1fr] lg:grid-cols-[300px_1fr] gap-12 lg:gap-20">
             {/* 왼쪽: 프로필 */}
             <div className="flex flex-col gap-8">
               {/* 프로필 사진 */}
-              <div className="w-full bg-gray-300 rounded-2xl aspect-square flex items-center justify-center">
-                <div className="text-8xl">👤</div>
+              <div className="w-full rounded-2xl overflow-hidden aspect-[4/5]">
+                <img src={profileImage} alt="프로필 사진" className="w-full h-full object-cover" />
               </div>
 
               {/* 개인 정보 */}
@@ -73,8 +74,8 @@ export default function Home() {
             <div className="flex flex-col gap-0">
               {/* 제목 */}
               <div className="mb-8">
-                <h1 className="text-5xl font-bold text-black">Web Developer</h1>
-                <p className="text-3xl text-yellow-600 italic font-light">Publisher</p>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Web Developer</h1>
+                <p className="text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publisher</p>
               </div>
 
               {/* 탭 버튼 */}
@@ -144,37 +145,73 @@ export default function Home() {
 
                 {activeTab === 'career' && (
                   <motion.div
-                    className="space-y-4"
+                    className="relative space-y-6 before:absolute before:left-[5px] before:top-[11px] before:bottom-4 before:w-px before:bg-gray-200"
                     variants={{
                       hidden: { y: 16, opacity: 0 },
                       visible: { y: 0, opacity: 1 },
                     }}
                     transition={{ duration: 0.35, ease: 'easeOut' }}
                   >
-                    <div>
-                      <p className="font-semibold text-gray-900">Promega Korea</p>
-                      <p className="text-gray-600 text-xs">2024 - 현재</p>
-                      <ul className="mt-2 text-xs space-y-1 text-gray-700">
-                        <li>• Sitecore CMS 기반 5개 페이지 유지보수 및 최적화</li>
-                        <li>• GA4 분석 기반 CS페이지 성능 개선</li>
-                        <li>• 마케팅 전략 수립 및 캠페인 운영</li>
-                        <li>• 브랜드 설계 및 이벤트 디자인</li>
-                      </ul>
-                    </div>
+                    {[
+                      {
+                        period: '2026.04 — 2026.09',
+                        org: 'Promega Korea',
+                        role: 'Web Publisher, Marketer, Designer Intern',
+                        desc: 'Sitecore CMS 페이지 운영 및 유지보수, 마케팅 채널(카톡, 블로그) 운영, GA4 분석. 디지털 마케팅 및 인쇄 물품 디자인.',
+                      },
+                      {
+                        period: '2025.09 — 2026.03',
+                        org: '라인컴퓨터 아트학원',
+                        role: 'Node.JS 기반 Open API를 활용한 응용 소프트웨어 개발자 양성 과정',
+                        desc: 'React 프레임워크를 메인으로 하여 컴포넌트 기반 UI/UX 설계 및 상태 관리 학습. Node.js와 Open API를 연동하여 비동기 데이터를 실제 화면에 효율적으로 렌더링하는 퍼블리싱 기술 숙달.',
+                      },
+                      {
+                        period: '2021.03 — 2025.02',
+                        org: '인하공업전문대학교',
+                        role: '정보통신학과 졸업',
+                        desc: '네트워크 구조 및 통신 프로토콜 이해, 프로그래밍 기초(C, Java) 및 웹개발실습',
+                      },
+                    ].map((item) => (
+                      <div key={item.period} className="relative pl-6">
+                        <span className="absolute left-0 top-[6px] w-[11px] h-[11px] rounded-full border-2 border-black bg-white" />
+                        <p className="text-[11px] font-mono tracking-wide text-gray-500">{item.period}</p>
+                        <p className="mt-1 text-base font-bold text-gray-900">{item.org}</p>
+                        <p className="mt-0.5 text-xs font-medium text-yellow-700">{item.role}</p>
+                        <p className="mt-2 text-xs text-gray-600 leading-relaxed">{item.desc}</p>
+                      </div>
+                    ))}
                   </motion.div>
                 )}
 
                 {activeTab === 'certification' && (
-                  <motion.p
-                    className="text-gray-600"
+                  <motion.div
+                    className="space-y-3"
                     variants={{
                       hidden: { y: 16, opacity: 0 },
                       visible: { y: 0, opacity: 1 },
                     }}
                     transition={{ duration: 0.35, ease: 'easeOut' }}
                   >
-                    준비 중입니다.
-                  </motion.p>
+                    {[
+                      { name: '검색광고마케터 1급', issuer: '한국정보통신진흥협회', year: '2025' },
+                      { name: 'GoogleAds', issuer: 'Google', year: '2025' },
+                      { name: '운전면허 2종보통', issuer: '도로교통공단', year: '2020' },
+                    ].map((cert) => (
+                      <div
+                        key={cert.name}
+                        className="flex items-center justify-between gap-4 px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-yellow-500 transition-colors duration-300"
+                      >
+                        <div className="flex items-center gap-4">
+                          <span className="text-2xl">🏅</span>
+                          <div>
+                            <p className="font-semibold text-gray-900">{cert.name}</p>
+                            <p className="text-xs text-gray-500 mt-0.5">{cert.issuer}</p>
+                          </div>
+                        </div>
+                        <span className="text-lg font-bold text-yellow-600 shrink-0">{cert.year}</span>
+                      </div>
+                    ))}
+                  </motion.div>
                 )}
               </motion.div>
 
