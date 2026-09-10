@@ -100,8 +100,8 @@ export default function Home() {
             <div className="flex flex-col gap-0">
               {/* 제목 */}
               <div className="mb-8">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Web Developer</h1>
-                <p className="mt-1 text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Publisher</p>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black break-keep">Web Publisher</h1>
+                <p className="mt-1 text-xl sm:text-2xl md:text-3xl text-yellow-600 italic font-light">Marketing &amp; Design</p>
               </div>
 
               {/* 탭 버튼 */}
@@ -150,11 +150,17 @@ export default function Home() {
                     }}
                     transition={{ duration: 0.35, ease: 'easeOut' }}
                   >
-                    <p>
-                      웹 표준을 준수하며 마케팅과 디자인을 이해하는 개발자입니다. Sitecore CMS 페이지 유지보수, GA4 분석 기반 성능 최적화, Discover Glo 심포지엄 브랜드 설계 등 웹 표준, 마케팅, 디자인을 넘나드는 경험을 가지고 있습니다.
+                    <p className="font-semibold text-gray-900">
+                      웹 개발, 마케팅, 디자인을 통합하는 웹 퍼블리셔
                     </p>
                     <p className="mt-4">
-                      또한, 최신 기술을 학습에 적극적으로 활용하여 표준을 높이고, 더 정교한 인터랙션과 코드 구조를 설계합니다.
+                      React와 Sitecore CMS로 서비스를 개발·배포하고, GA4 데이터를 기반으로 구현한 페이지가 실제로 어떻게 사용되고 어떤 결과를 내는지까지 함께 봅니다.
+                    </p>
+                    <p className="mt-4">
+                      동시에 카카오톡 채널, 블로그 같은 마케팅 채널을 직접 운영하고, 배너·포스터·굿즈 등 디자인도 제작합니다.
+                    </p>
+                    <p className="mt-4">
+                      개발, 마케팅, 디자인이 따로 놀지 않고 하나의 비즈니스 목표로 통합되는 것이 제 강점입니다.
                     </p>
                     <div className="mt-6">
                       <a
@@ -289,7 +295,7 @@ export default function Home() {
               />
               <SectionFolder
                 title="웹 개발"
-                description="React, JavaScript로 구현하는 프론트엔드"
+                description="CMS 기반 페이지 운영과 React로 구현하는 프론트엔드"
                 path="/web-development"
                 projectCount={projectsData.webDevelopment.professional.length + projectsData.webDevelopment.learning.length}
               />
