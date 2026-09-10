@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 
 function GithubIcon({ className }) {
   return (
@@ -32,16 +32,13 @@ const skills = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('intro')
-  const isFirstRender = useRef(true)
-  const [skipAnimation, setSkipAnimation] = useState(true)
+  // 첫 진입 시에는 탭 내용이 바로 보이고, 탭을 클릭한 뒤부터 전환 애니메이션이 적용됨
+  const [hasInteracted, setHasInteracted] = useState(false)
 
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false
-    } else {
-      setSkipAnimation(false)
-    }
-  }, [activeTab])
+  const handleTabClick = (id) => {
+    setHasInteracted(true)
+    setActiveTab(id)
+  }
 
   return (
     <div className="min-h-screen bg-gray-200 p-4 md:p-8 flex items-center justify-center">
@@ -113,7 +110,7 @@ export default function Home() {
                 ].map((tab) => (
                   <motion.button
                     key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
+                    onClick={() => handleTabClick(tab.id)}
                     className={`flex-1 text-sm font-semibold h-12 flex items-center justify-center cursor-pointer hover:text-black border-b-2 transition-colors duration-300 ${
                       activeTab === tab.id ? 'text-black border-black' : 'text-gray-600 border-transparent'
                     }`}
@@ -127,7 +124,7 @@ export default function Home() {
               <motion.div
                 className="text-gray-800 leading-relaxed text-sm space-y-4 min-h-[180px]"
                 key={activeTab}
-                initial={skipAnimation ? "visible" : "hidden"}
+                initial={hasInteracted ? "hidden" : "visible"}
                 animate="visible"
                 exit="hidden"
                 variants={{
