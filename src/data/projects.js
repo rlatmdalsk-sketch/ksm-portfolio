@@ -44,7 +44,7 @@ export const projectsData = {
             hasDetail: true,
             detail: {
                 summary: '네이버 블로그의 메인 레이아웃을 브랜드 톤에 맞게 설계하고, 게시글 기획부터 이미지·그래픽 제작, 발행까지 포스팅 운영을 담당했습니다.',
-                gallery: [{ image: 'naver blog.png', caption: '블로그 메인 레이아웃' }],
+                gallery: [{ image: 'naver_blog.png', caption: '블로그 메인 레이아웃' }],
                 work: [
                     '상단 배너와 프로필 영역을 브랜드 컬러에 맞춰 설계',
                     '자주 묻는 질문, 소개, 리서치 하이라이트로 섹션을 나눠 콘텐츠 구조 정리',
