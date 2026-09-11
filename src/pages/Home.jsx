@@ -161,7 +161,7 @@ export default function Home() {
                     </p>
                     <div className="mt-6">
                       <a
-                        href="https://github.com/rlatmdalsk-sketch/ksm-portfolio"
+                        href="https://github.com/rlatmdalsk-sketch"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-6 py-2 border-2 border-black rounded text-sm font-semibold hover:bg-black hover:text-white transition-all"
